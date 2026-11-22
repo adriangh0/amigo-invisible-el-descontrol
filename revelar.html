@@ -294,27 +294,14 @@
 <script>
   'use strict';
 
-  /* ── Leer sesión ── */
+  /* ── Leer sesión (descifrada en el login) ── */
   const nombreUsuario = sessionStorage.getItem('amigoInvisible_usuario');
+  const asignado      = sessionStorage.getItem('amigoInvisible_asignado');
+  const sexoAsignado  = sessionStorage.getItem('amigoInvisible_asignadoSexo') || null;
+  const fotoAsignado  = sessionStorage.getItem('amigoInvisible_asignadoFoto') || null;
   const yaRevelado    = sessionStorage.getItem('amigoInvisible_revelado');
 
-  if (!nombreUsuario) {
-    window.location.href = 'index.html';
-  }
-
-  /* ── Buscar asignado ── */
-  function obtenerAsignado(nombre) {
-    if (!SORTEO_DATA || !SORTEO_DATA.participantes) return null;
-    const p = SORTEO_DATA.participantes.find(
-      x => x.nombre.toLowerCase() === nombre.toLowerCase()
-    );
-    return p ? p.asignado : null;
-  }
-
-  const asignado = obtenerAsignado(nombreUsuario);
-
-  if (!asignado) {
-    // Participante no encontrado, algo fue mal
+  if (!nombreUsuario || !asignado) {
     sessionStorage.clear();
     window.location.href = 'index.html';
   }
@@ -326,13 +313,10 @@
 
   document.title = `Tu amigo: ${asignado} 🎁`;
 
-  /* ── Foto del asignado (si existe en data.js) ── */
-  const partAsignado = SORTEO_DATA.participantes.find(
-    x => x.nombre.toLowerCase() === asignado.toLowerCase()
-  );
-  if (partAsignado && partAsignado.foto) {
+  /* ── Foto del asignado (si existe) ── */
+  if (fotoAsignado) {
     const fotoEl = document.getElementById('fotoAsignado');
-    fotoEl.innerHTML = `<img src="${partAsignado.foto}" alt="${asignado}" />`;
+    fotoEl.innerHTML = `<img src="${fotoAsignado}" alt="${asignado}" />`;
   }
 
   /* ── Confetti ── */
@@ -402,12 +386,11 @@
   const CLAVE_APUESTA = 'amigoInvisible_apuesta';
   const MAX_ELEGIDOS  = 3;
 
-  const sexoDe = (nombre) => {
-    const p = SORTEO_DATA.participantes.find(x => x.nombre.toLowerCase() === nombre.toLowerCase());
-    return p ? p.sexo : null;
-  };
+  const listaNombresPool = (typeof SORTEO_DATA !== 'undefined' && SORTEO_DATA.pool)
+    ? desofuscarListaPublica(SORTEO_DATA.pool)
+    : [];
 
-  const hayDatosSexo = SORTEO_DATA.participantes.every(p => p.sexo === 'h' || p.sexo === 'm');
+  const hayDatosSexo = (sexoAsignado === 'h' || sexoAsignado === 'm');
 
   function mostrarApuesta(alTerminar) {
     const fase     = document.getElementById('fase-apuesta');
@@ -477,9 +460,9 @@
       );
     }
 
-    const otros = SORTEO_DATA.participantes
-      .filter(p => p.nombre.toLowerCase() !== nombreUsuario.toLowerCase())
-      .map(p => ({ etiqueta: p.nombre, valor: p.nombre }));
+    const otros = listaNombresPool
+      .filter(n => n.toLowerCase() !== nombreUsuario.toLowerCase())
+      .map(n => ({ etiqueta: n, valor: n }));
 
     pintarMultiple(
       '¿A quién te gustaría que te tocase? 👀 Elige hasta 3',
@@ -507,7 +490,7 @@
       ]);
     }
 
-    if (hayDatosSexo && apuesta.sexo && apuesta.sexo === sexoDe(asignado)) {
+    if (hayDatosSexo && apuesta.sexo && apuesta.sexo === sexoAsignado) {
       const contrario = apuesta.sexo === 'h' ? 'una chica' : 'un chico';
       return `Has tenido suerte, imagina que te llega a tocar ${contrario} 😮‍💨`;
     }
