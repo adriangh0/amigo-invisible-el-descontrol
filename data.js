@@ -1,31 +1,46 @@
 // INSTRUCCIONES: Sustituye este objeto con el generado por admin.html
 // Todos los nombres, contraseñas y asignados están hasheados/cifrados (SHA-256).
 const SORTEO_DATA = {
-    "locked":  true,
-    "hashed":  true,
-    "titulo":  "Amigo Invisible El Descontrol 🎄",
-    "fotoGrupo":  null,
-    "pool":  "6ca1f6b97a4ee32e3810251dc57810bec4de7a415421e8a8fe767460143b590450ec9580",
-    "participantes":  [
-                          {
-                              "u":  "76cccc8555674a9aa8dd54cee3c7aaeac8b1be3f77ac777ec320b5153192b54f",
-                              "p":  "c140c5f9a7fd8c3fe18cf788b309d316ef41d4468e7e9f5a29f9a2911ada255a",
-                              "a":  "1ef2b18b0eafe4b861af1b7e377857df64e870b5c2c56dbad1a09a7f00f234753ecaa8031e9daca0d1d62054d0c6a41561c9a23a8d92df017e3560a142f9ed53402e3c6a2df38b72dc68d81986"
-                          },
-                          {
-                              "u":  "17538e11e69a090b9497fd57b49e7fa790ec7d0297bf05ce411b1f20c1cc667c",
-                              "p":  "8f33ddce715d4b438e298532caadc535a90e3196a9db400a20ae8781449b791c",
-                              "a":  "4435e403dbaad3407a1d63d018e2b77939f23ec1fd0afe5c71fddd075a2fa94731bdde16773514f1fb6824ef394cd1d9c434a05c8f82e6011800a93af28a39953b64e35fe7bffde0d693b0b3f5"
-                          },
-                          {
-                              "u":  "ac6b589f3dafb7ef919769253bde5ac10cef35ba94a66c5bfb38ccb8a2778090",
-                              "p":  "6f58a2fd3679fde437f12d0bc874865eefa030b47c976a10d9ae2492cd9ae34d",
-                              "a":  "01b1f2f2a44adc6af31b170e264b9eabc5e643dd7117de3a7771a0fba75f88693f53cc5a6f27df2971278eaf45c32e515d6d69a4933d911fb2120a6ddb79ea9d5678c5152ca083fdd2c0f6f2c820"
-                          },
-                          {
-                              "u":  "6ce41a331566866455bb9001eb61027c8a52b7ce7b6d710aeb337ee08c54d2d0",
-                              "p":  "ea405a2ddd5b9d69c60e41d7d176c4affb6131b3bd53bf040ba9725d5e4a10bb",
-                              "a":  "f64a861e5e86d9df504e32d6f6c758027d009d482e6d2fdfbae8e441756f4b48fa874ff700cfd19ccf5162dbb7a250a26098ce1ad12a8317a1e2a759f2efa0fc5ee36ef357f895dc186a91114104"
-                          }
-                      ]
+  "locked": true,
+  "hashed": true,
+  "titulo": "Amigo Invisible El Descontrol 🎄",
+  "fotoGrupo": null,
+  "pool": "6ca1f0bc6a55eb25765d2572865813bb949b3f62036ea388b8283f53157f6c0c45edd6be6048a06c3870723dcd6b5ef3c4b1397f4d23a3e5fe093e5712334a4f1ba1f2b17b46a01d",
+  "participantes": [
+    {
+      "u": "ac6b589f3dafb7ef919769253bde5ac10cef35ba94a66c5bfb38ccb8a2778090",
+      "p": "6f58a2fd3679fde437f12d0bc874865eefa030b47c976a10d9ae2492cd9ae34d",
+      "a": "01b1f2f2a44adc6af31b170e264b9eabc5e643dd7117de3a7771a0fba75f9b622948c453204292796c2395a86b926b14406975a4f074da10fe5f4c649637a7b4073d801d22b0839e9bc7e4f0c539155bfe19242fc98b"
+    },
+    {
+      "u": "1b0a50917d29e88365fdfe122d86b969e149a70c45909e8a03b5468684bffbfa",
+      "p": "c2ab9d7ff175601b4cc16f6e10b55eb3b2a7123952d8a3b5a9ab0cb4bac94b83",
+      "a": "307a41f6986dc28c006d801129ea5604170d31ca0d6a9302b98350e47ad13e031b471f563934c41961520cbef130d120a6f2d64209b2a84047bde90c7ef85d411a8a8926911fd1cdd5b442f9"
+    },
+    {
+      "u": "616327e45c21678f5e0fa81639d0b5917dd2f6c793d9dc6d5c66048951f11f5a",
+      "p": "cfa69fe451b39ce2d0976ad25a75819a9905dbc02b003b08de9ec5aa6410bd3e",
+      "a": "a568b53ee6fc83786caa73f97eb9b2bc1aff455eaaccd9eb331ffcdb57e3ae59a7f4a1f1070df7796a72999f3fc9c7ef1b2b37be477ddcc6a6e7d3179df360db864ab39c1367bcce04a1af0a73fda5c3afb7effb4998f8f148"
+    },
+    {
+      "u": "72db7b42d8f6e3fecc08763b9ad64e7b3f229d1e834a0a4d5c4bbe1e9592a2d0",
+      "p": "d655434b8b92e661a6067c5fdc471bddac8f9a01e25853b1f2e14614097b9d57",
+      "a": "23056efa73e60a3482358418ab2233e8099de8b8aa032b348d3e3cd058d567f828d78654dec39b6b997e188385fd2dc7b342fc1a4aa0e2b3b0335af504e59be1275f95d7229cb7a048e3d72fa8ba5e18bf"
+    },
+    {
+      "u": "8877eb05580667c0b7da15de92fba8d5b23c979d1b23cd4dab1d1f2c89aa5257",
+      "p": "ace06127214ec2e0235516e462a0a8d29442d4854f7ab9034d9753ed68865a34",
+      "a": "4e15506adb3e539aec7995f398c0ba6ed713a9e0f317950485b3bb24af8511f06e2493c563873a732f3f522f923e7aeaffeb837410b7e1081716fa05e8bb92b63a37e95ccd01935812da54"
+    },
+    {
+      "u": "17538e11e69a090b9497fd57b49e7fa790ec7d0297bf05ce411b1f20c1cc667c",
+      "p": "8f33ddce715d4b438e298532caadc535a90e3196a9db400a20ae8781449b791c",
+      "a": "4435e403dbaad3407a1d63d018e2b77939f23ec1fd0afe5c71fddd075a2fbb4b26bdd319773514f1fb6824ef394cd1d9c434a05c8f82e3011800a93af28a39953b64e35fe7bffde0d693b0b3f5"
+    },
+    {
+      "u": "6ce41a331566866455bb9001eb61027c8a52b7ce7b6d710aeb337ee08c54d2d0",
+      "p": "ea405a2ddd5b9d69c60e41d7d176c4affb6131b3bd53bf040ba9725d5e4a10bb",
+      "a": "f64a861e5e86d9df504e32d6f6c758027d009d482e6d2fdfbae8e441756f4b48fa874ff700cfd19ccf5162dbb7a250a26098ce1ad12a8317a1e2a759f2efa0fc5ee36ef357f895dc186a91114104"
+    }
+  ]
 };
