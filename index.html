@@ -128,13 +128,31 @@
       return;
     }
 
+    const hUser = hashNombre(nombreIntroducido);
+    const hPass = hashCredencial(nombreIntroducido, passwordIntroducido);
+
     const participante = SORTEO_DATA.participantes.find(p =>
-      p.nombre.toLowerCase() === nombreIntroducido.toLowerCase() &&
-      p.password === passwordIntroducido
+      p.u === hUser && p.p === hPass
     );
 
     if (participante) {
-      sessionStorage.setItem('amigoInvisible_usuario', participante.nombre);
+      let datosSecretos = null;
+      try {
+        datosSecretos = JSON.parse(descifrarConClave(participante.a, nombreIntroducido, passwordIntroducido));
+      } catch (err) {
+        datosSecretos = null;
+      }
+
+      if (!datosSecretos || !datosSecretos.asignado) {
+        mensajeError.textContent = '❌ Error al descifrar tu amigo invisible.';
+        mensajeError.classList.add('visible');
+        return;
+      }
+
+      sessionStorage.setItem('amigoInvisible_usuario', datosSecretos.nombre || nombreIntroducido);
+      sessionStorage.setItem('amigoInvisible_asignado', datosSecretos.asignado);
+      sessionStorage.setItem('amigoInvisible_asignadoSexo', datosSecretos.sexoAsignado || '');
+      sessionStorage.setItem('amigoInvisible_asignadoFoto', datosSecretos.fotoAsignado || '');
       sessionStorage.removeItem('amigoInvisible_revelado');
       sessionStorage.removeItem('amigoInvisible_apuesta');
       sessionStorage.removeItem('amigoInvisible_textoApuesta');
